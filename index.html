@@ -165,8 +165,16 @@ body {
     <input type="number" id="tableLength" value="138.5" min="100" max="500" step="0.1">
     <label for="friction">Coefficiente di scorrimento (0-1):</label>
     <input type="number" id="friction" value="0.93" min="0.8" max="0.999" step="0.001">
-    <label for="showGhost">Mostra traiettoria:</label>
+    <label for="difficultyLevel">Livello di difficoltà:</label>
+		<select id="difficultyLevel">
+			<option value="60">Dilettante</option>
+			<option value="40" selected>Amatore</option>
+			<option value="25">Maestro</option>
+			<option value="5">Grappa</option>
+		</select>
+	<label for="showGhost">Mostra traiettoria:</label>
     <input type="checkbox" id="showGhost">
+	
     <button onclick="updateTable()">Aggiorna</button>
 </div>
 
@@ -235,6 +243,8 @@ let secondBallToCastle = null;
 function setup() {
     updateTable();
     message = document.getElementById('message');
+    updateDifficulty(); // Inizializza la difficoltà
+	document.getElementById('difficultyLevel').addEventListener('change', updateDifficulty);
 }
 
 function startGame() {
@@ -275,6 +285,12 @@ function updateTable() {
     if (gameStarted) {
         resetBalls();
     }
+}
+
+function updateDifficulty() {
+    let difficultyLevel = document.getElementById('difficultyLevel').value;
+    console.log("Difficoltà impostata a: " + difficultyLevel);
+    // Qui puoi aggiungere altre azioni se necessario
 }
 
 function resetBalls() {
@@ -390,11 +406,13 @@ function canvasMousePressed() {
         ghostPath = [];
         ballPath = [];
     } else {
-        let force = dist(startX, startY, mouseX, mouseY) / 10;
+        let difficultyFactor = parseFloat(document.getElementById('difficultyLevel').value);
+        let distance = dist(startX, startY, mouseX, mouseY);
+        let force = distance / difficultyFactor;
         let angle = atan2(mouseY - startY, mouseX - startX);
         activeBall.applyForce(force * cos(angle), force * sin(angle));
         isDragging = false;
-        isShotInProgress = true;  // Inizia il tiro
+        isShotInProgress = true;
     }
 }
 
@@ -458,7 +476,9 @@ function createDiamonds() {
 function drawGhostPath() {
     let activeBall = currentPlayer === 'white' ? whiteBall : redBall;
     let ghostBall = new Ball(activeBall.x, activeBall.y, BALL_DIAMETER, activeBall.color);
-    let force = dist(startX, startY, mouseX, mouseY) / 10;
+    let difficultyFactor = parseFloat(document.getElementById('difficultyLevel').value);
+    let distance = dist(startX, startY, mouseX, mouseY);
+    let force = distance / difficultyFactor;
     let angle = atan2(mouseY - startY, mouseX - startX);
     ghostBall.applyForce(force * cos(angle), force * sin(angle));
 
