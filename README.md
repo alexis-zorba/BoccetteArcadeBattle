@@ -32,6 +32,13 @@ Move the mouse to adjust the direction and power of the shot.
 Click again to execute the shot.
 The goal is to hit the central castle with the opponent's ball.
 
+Customization
+You can modify various game parameters, including:
+Table dimensions
+Friction coefficient
+Number of rounds
+Visual appearance (by modifying the CSS)
+
 Code Structure
 
 index.html: HTML structure of the game
@@ -46,14 +53,3 @@ setup(): Game initialization
 draw(): Main game loop
 handleShotEnd(): Handling the end of each shot
 checkCollision(): Collision detection and handling
-
-Customization
-You can modify various game parameters, including:
-
-Table dimensions
-Friction coefficient
-Number of rounds
-Visual appearance (by modifying the CSS)
-
-Contributing
-Feel free to fork the project, make changes, and submit pull requests. For major changes, please open an issue first to discuss the proposed changes.
