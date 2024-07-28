@@ -1,4 +1,4 @@
-Boccette & Matamà - Arcade Battle" is an arcade-style game based on the traditional Italian game of boccette. Developed using HTML5, CSS3, and JavaScript with the p5.js library, this game offers a fun and engaging experience for two players. The game simulates the physics of balls on a billiard table, including collisions, friction, and a central castle. With simple yet appealing graphics and intuitive controls, "Boccette & Matamà" is a modern tribute to a classic tabletop game.
+Boccette & Matamà - Arcade Battle" is an arcade-style game based on the traditional Italian game of boccette. Developed using HTML5, CSS3, and JavaScript with the p5.js library, this game offers a fun and engaging experience for two players. The game simulates the physics of balls on a billiard table, including collisions, friction, and a central castle. With simple yet appealing graphics and intuitive controls, "Boccette & Matamà" is a modern tribute to a classic tabletop game. You can enjoy it here: https://boccettearcadebattle.netlify.app/
 
 Features
 
