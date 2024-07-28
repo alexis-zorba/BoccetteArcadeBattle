@@ -18,9 +18,6 @@ p5.js for graphics and animation
 
 Installation
 
-Clone the repository:
-Copygit clone https://github.com/yourusername/boccette-matama.git
-
 Open the index.html file in a modern web browser.
 
 How to Play
